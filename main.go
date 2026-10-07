@@ -1,19 +1,29 @@
 package main
 
-import ("os"
+import (
+	"os"
+	"strings"
 
-		"fmt"
-
+	"fmt"
 )
 
 
 func main()  {
 	entre:= os.Args[1]
+	
 	txt,err := os.ReadFile(entre)
 	if err != nil {
 		fmt.Printf("Error reading file: %v\n", err)
-		os.Exit(1)
+		return
+	} else{
+		
+		res:= strings.Fields(string(txt))
+		
+		fmt.Print(res)
 	}
+		}
+	//os.WriteFile("test.txt",[]byte(txt),0644)//
 	
-	fmt.Println(string(txt))
-}
+		
+	
+	
