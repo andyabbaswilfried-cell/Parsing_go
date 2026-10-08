@@ -9,44 +9,30 @@ import (
 func Up_p(phrase []string) []string {
 
 	var res []string
-	
-	for i, r := range phrase {
-		if res[i] == "(cap)" && i > 0 {
-		if r == "(up," {
+
+	for i:=0; i<len(phrase);i++ {
+		if phrase[i] == "(up," && i > 0 {
 			if len(phrase) > 1 {
-				data, err := strconv.Atoi(strings.TrimSuffix(res[i+1], ")\u200b"))
+				data, err := strconv.Atoi(strings.TrimSuffix(string(phrase[i+1]), ")\u200b"))
 				if err != nil {
 					fmt.Println("il y a une erreur")
+				} else {
+
+
+					for i:= len(res)-data; i<len(res);i++{
+						res[i] = strings.ToUpper(res[i])
+					
+					}
+					i++
+
 				}
-				i++
-				res = up_precedent(phrase, data)
+
 			}
 
-		} else{
-			res = append(res, r)
-		}
-		
-	} //
-	return res
-	}
-}
-
-
-func Bin(res []string) []string {
-	var resultat []string
-	for i := 0; i < len(res); i++ {
-		if res[i] == "(bin)" && i > 0 {
-			decimal, err := strconv.ParseInt(res[i-1], 2, 64)
-			if err != nil {
-				fmt.Println("la fonction binaire")
-			} else {
-
-				resultat[len(resultat)-1] = strconv.Itoa(int(decimal))
-			}
 		} else {
-			resultat = append(resultat, res[i])
-		}
+			res = append(res, phrase[i])
 
+		}
 	}
-	return resultat
+	return res
 }
