@@ -1,0 +1,25 @@
+j'ai 1E (hex) 2F (hex) ans 
+
+package folderfunc
+
+//import (
+"fmt")
+func Up_p(phrase []string,nbr int) []string{
+	var res []string
+	for _,r := range phrase{
+		
+		if nbr> len(phrase){
+			fmt.Println("il y a un problème de mots à mettre en majuscules")
+		} else if nbr >=0 {
+			if r == phrase[len(phrase)-nbr]{
+				res = append(res,Up(phrase[len(phrase)-nbr]))
+				nbr--
+			}else if nbr==0{
+				return  res
+			} else {
+				res = append(res, r)
+			}
+		}
+	}
+	return res
+}//
