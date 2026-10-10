@@ -24,6 +24,7 @@ func main() { // Il lit le fichier, applique chaque règle de modification dans 
 		res= folderfunc.Lower(res)
 		res= folderfunc.Up(res)
 		res=folderfunc.Up_p(res)
+		res=folderfunc.Ponctuation_simple(res)
 		fmt.Println(res)
 }
 

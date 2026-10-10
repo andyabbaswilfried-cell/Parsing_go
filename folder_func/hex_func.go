@@ -5,21 +5,20 @@ import (
 	"strconv"
 )
 
-func Hex(res []string) []string {
-	var resultat []string
-	for i := 0; i < len(res); i++ {
-		if res[i] == "(hex)" && i > 0 {
-			decimal, err := strconv.ParseInt(res[i-1], 16, 32)
+func Hex(phrase []string) []string {
+	var res []string
+	for i := 0; i < len(phrase); i++ {
+		if phrase[i] == "(hex)" && i > 0 {
+			data, err := strconv.ParseInt(res[i-1], 16, 64)
 			if err != nil {
-				fmt.Println("la fonction binaire")
+				fmt.Println("Il y a un problème avec hex")
 			} else {
-
-				resultat[len(resultat)-1] = strconv.Itoa(int(decimal))
+				res[len(res)-1] = strconv.Itoa(int(data))
+				i++
 			}
 		} else {
-			resultat = append(resultat, res[i])
+			res = append(res, phrase[i])
 		}
-
 	}
-	return resultat
+	return res
 }

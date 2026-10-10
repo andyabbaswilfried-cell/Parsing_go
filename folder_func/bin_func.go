@@ -5,21 +5,22 @@ import (
 	"strconv"
 )
 
-func Bin(res []string) []string {
-	var resultat []string
-	for i := 0; i < len(res); i++ {
-		if res[i] == "(bin)" && i > 0 {
-			decimal, err := strconv.ParseInt(res[i-1], 2, 64)
-			if err != nil {
-				fmt.Println("la fonction binaire")
-			} else {
-
-				resultat[len(resultat)-1] = strconv.Itoa(int(decimal))
+func Bin(phrase []string) []string {
+	var  res []string 
+	for i:=0; i<len(phrase); i++{
+		if phrase[i]== "(bin)" && i>0{
+			data,err := strconv.ParseInt(res[i-1],2,64)
+			if err!= nil{
+				fmt.Println("Il y a un problème avec bin")
 			}
-		} else {
-			resultat = append(resultat, res[i])
+			res[len(res)-1] = strconv.Itoa(int(data))
+			i++
+		}else{
+			res = append(res, phrase[i])
 		}
-
 	}
-	return resultat
+	return res
+
 }
+
+

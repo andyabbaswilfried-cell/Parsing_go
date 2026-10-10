@@ -1,22 +1,16 @@
 package folderfunc
 
-import (
-	
-	"strings"
-)
+import "strings"
 
-func Lower(res []string) []string {
-	var resultat []string
-
-	for i := 0; i < len(res); i++ {
-		if res[i] == "(low)" && i > 0 {			
-				resultat[len(resultat)-1] = strings.ToLower(res[i-1])
+func Lower(phrase []string) []string {
+	var res []string
+	for i := 0; i < len(phrase); i++ {
+		if phrase[i] == "(low)" && i > 0 {
+			res[len(res)-1] = strings.ToLower(res[len(res)-1])
+			i++
 		} else {
-			resultat = append(resultat, res[i])
+			res = append(res, phrase[i])
 		}
-
-		
-
 	}
-	return resultat
+	return res
 }

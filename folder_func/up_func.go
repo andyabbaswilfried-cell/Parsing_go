@@ -4,18 +4,15 @@ import "strings"
 
 
 
-func Up(res []string) []string {
+func Up(phrase []string) []string {
 	var resultat []string
 
-	for i := 0; i < len(res); i++ {
-		if res[i] == "(up)" && i > 0 {			
-				resultat[len(resultat)-1] = strings.ToUpper(res[i-1])
+	for i := 0; i < len(phrase); i++ {
+		if phrase[i] == "(up)" && i > 0 {			
+				resultat[len(resultat)-1] = strings.ToUpper(phrase[i-1])
 		} else {
-			resultat = append(resultat, res[i])
+			resultat = append(resultat, phrase[i])
 		}
-
-		
-
 	}
 	return resultat
 }

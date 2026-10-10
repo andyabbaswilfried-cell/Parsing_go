@@ -8,3 +8,70 @@ I should stop should SHOUTING (low)
 
 Welcome to the Brooklyn bridge  (cap)
 
+func Up_p(phrase []string) []string{
+
+	for i:=0; i<len(phrase);i++ {
+		if phrase=="." || "," || "?" || ":" || ";"{
+			return
+		}
+	}
+}
+
+Ready, set, go (up) !.
+Simply add 42 (hex) and 10 (bin) and you will see the result is 68.​
+Welcome to the Brooklyn bridge  (cap)
+I should stop SHOUTING (low)
+his is so exciting (up, 2)​
+over there, and then BAMM !!
+package folderfunc
+
+
+
+func Ponctuation_simple(phrase []string) []string {
+	var res []string
+
+	for i := 0; i < len(phrase); i++ {
+		if phrase[i] == "." || phrase[i] == "!" || phrase[i] == ":" {
+			res[len(res)-1] = res[len(res)-1] + phrase[i] + " "
+
+		} else if phrase[i] == "..." || phrase[i] == "!!" || phrase[i] == "!?" {
+			res[len(res)-1] = res[len(res)-1] + phrase[i] + " "
+			i++
+		} else {
+			res = append(res, phrase[i])
+		}
+	}
+	return res
+}
+
+func Is_ponctuation(sentence string) bool {
+
+	for i := 0; i < len(sentence); i++ {
+		if sentence[i] < 48 || sentence[i] > 57 {
+			return false
+		}
+	}
+	return true
+}
+
+
+func Is_ponctuatio_start(mot string) (start int, debut_ponctuation bool) {
+	var count int
+
+	debut_ponctuation = false
+	for i, r := range mot {
+		if i == 0 && Is_ponctuation(string(r)) {
+			debut_ponctuation = true
+			for letter := 1; letter < len(mot); letter++ {
+				if mot[letter] == '.' || mot[letter] == '!' || mot[letter] == ':' || mot[letter] == ';' || r == '?' || r == ',' {
+					count++
+				} else {
+					return count, debut_ponctuation
+				}
+			}
+		}
+
+	}
+	return count, debut_ponctuation
+
+}
