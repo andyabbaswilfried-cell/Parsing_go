@@ -23,6 +23,8 @@ Welcome to the Brooklyn bridge  (cap)
 I should stop SHOUTING (low)
 his is so exciting (up, 2)​
 over there, and then BAMM !!
+,and
+describe me: ' awesome '
 package folderfunc
 
 

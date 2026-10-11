@@ -1,8 +1,11 @@
 package folderfunc
 
 import "strings"
+
 func Ponctuation_simple(phrase []string) []string {
 	var res []string
+	comp_apostrofe:=0
+	var apostre_start int
 
 	for i := 0; i < len(phrase); i++ {
 		if Is_ponctuation(phrase[i]) {
@@ -18,16 +21,39 @@ func Ponctuation_simple(phrase []string) []string {
 				
 				length_ponctuation:= len(phrase[i]) - len(after_word)
 				if len(res) > 0{
-				 res[len(res)-1] = res[len(res)-1]+ phrase[i][:length_ponctuation]
+					 res[len(res)-1] = res[len(res)-1]+ phrase[i][:length_ponctuation]
 				
-				}else if len(res)==0{
-				res =append(res, phrase[i])
-				}else{
-					res =append(res, after_word)
 				
 				}
-				 
+					res =append(res, after_word)
 				
+				
+				 
+			case '\'':
+				comp_apostrofe++
+				if comp_apostrofe ==1{
+					
+					res = append(res, phrase[i])
+					apostre_start = len(res)-1
+					
+				}else	if comp_apostrofe ==2{	
+						if  apostre_start+1<len(res) {
+						res[len(res)-1] = res[len(res)-1]+phrase[i] 
+						res[apostre_start] = res[apostre_start]+  res[apostre_start+1]
+						  res = append(res[:apostre_start+1],
+                   res[apostre_start+2:]...)
+				    comp_apostrofe=0
+						  } else{
+							res = append(res, phrase[i])
+							 comp_apostrofe=0
+						  }
+						 
+					} else{
+						res = append(res, phrase[i])
+					}
+					
+			
+					
 				
 			default:
 				res = append(res, phrase[i])

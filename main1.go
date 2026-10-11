@@ -9,6 +9,7 @@ import (
 
 func main() { // Il lit le fichier, applique chaque règle de modification dans l'ordre.
 	entre := os.Args[1]
+	var phrase string
 
 	txt, err := os.ReadFile(entre)
 	if err != nil {
@@ -18,20 +19,31 @@ func main() { // Il lit le fichier, applique chaque règle de modification dans 
 
 	}
 		res := strings.Fields(string(txt))
-		res = folderfunc.Bin(res)
-		res= folderfunc.Cap(res)
-		res= folderfunc.Hex(res)
-		res= folderfunc.Lower(res)
-		res= folderfunc.Up(res)
-		res=folderfunc.Up_p(res)
-		res=folderfunc.Ponctuation_simple(res)
+	
+		res= regles(res)
 		fmt.Println(res)
+		
+		for _,r := range res{
+		phrase += r + " "
+		}
+		resultat_final:= []byte(phrase)
+		os.WriteFile("sortie.txt",resultat_final,0644)
+	
+
 }
 
 func regles(matrice []string) []string {
 	
 	matrice = folderfunc.Bin(matrice)
-	
+	matrice = folderfunc.Bin(matrice)
+	matrice= folderfunc.Cap(matrice)
+	matrice= folderfunc.Hex(matrice)
+	matrice= folderfunc.Lower(matrice)
+	matrice= folderfunc.Up(matrice)
+	matrice=folderfunc.Up_p(matrice)
+	matrice=folderfunc.Ponctuation_simple(matrice)
+	matrice=folderfunc.Indefinite_article_rule(matrice)
+
 	return matrice
 }
 
