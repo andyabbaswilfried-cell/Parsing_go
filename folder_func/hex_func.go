@@ -14,7 +14,7 @@ func Hex(phrase []string) []string {
 				fmt.Println("Il y a un problème avec hex")
 			} else {
 				res[len(res)-1] = strconv.Itoa(int(data))
-				i++
+				
 			}
 		} else {
 			res = append(res, phrase[i])

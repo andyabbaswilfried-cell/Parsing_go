@@ -77,3 +77,27 @@ func Is_ponctuatio_start(mot string) (start int, debut_ponctuation bool) {
 	return count, debut_ponctuation
 
 }
+
+
+
+
+func Up_p(phrase []string) []string {
+	var res []string
+	for i := 0; i < len(phrase); i++ {
+		if phrase[i] == "(up," &&  i+1<len(phrase) {
+			nbr := Split(phrase[i+1], ")")
+			NBR, err := strconv.Atoi(nbr[0])
+			if err != nil {
+				fmt.Println("il y a un problème avec up")
+			} else {
+				for word := len(res) - NBR; word < len(res); word++ {
+					res[word] = strings.ToUpper(res[word])				
+				}
+				i++
+			}
+		} else {
+			res = append(res, phrase[i])
+		}
+	}
+	return res
+}

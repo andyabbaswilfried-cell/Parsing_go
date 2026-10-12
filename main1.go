@@ -35,12 +35,11 @@ func main() { // Il lit le fichier, applique chaque règle de modification dans 
 func regles(matrice []string) []string {
 	
 	matrice = folderfunc.Bin(matrice)
-	matrice = folderfunc.Bin(matrice)
 	matrice= folderfunc.Cap(matrice)
 	matrice= folderfunc.Hex(matrice)
 	matrice= folderfunc.Lower(matrice)
 	matrice= folderfunc.Up(matrice)
-	matrice=folderfunc.Up_p(matrice)
+	matrice=folderfunc.Up_precedent(matrice)
 	matrice=folderfunc.Ponctuation_simple(matrice)
 	matrice=folderfunc.Indefinite_article_rule(matrice)
 

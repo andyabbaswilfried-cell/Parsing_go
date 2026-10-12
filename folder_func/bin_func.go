@@ -12,9 +12,12 @@ func Bin(phrase []string) []string {
 			data,err := strconv.ParseInt(res[i-1],2,64)
 			if err!= nil{
 				fmt.Println("Il y a un problème avec bin")
+				 
+			}else{
+				res[len(res)-1] = strconv.Itoa(int(data))
 			}
-			res[len(res)-1] = strconv.Itoa(int(data))
-			i++
+			
+			
 		}else{
 			res = append(res, phrase[i])
 		}

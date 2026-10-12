@@ -6,7 +6,7 @@ func Cap(phrase []string) []string {
 	for i:=0; i<len(phrase);i++{
 		if phrase[i]=="(cap)" && i>0{
 			res[len(res)-1]= Capitalize(res[len(res)-1])
-			i++
+		
 		}else{
 			res = append(res, phrase[i])
 		}
@@ -37,20 +37,7 @@ func Capitalize(sentence string) string {
 	return result
 }
 
-func toupper(sentence string) string {
-	var tempo rune
-	var result string
-	for i := 0; i < len(sentence); i++ {
-		if sentence[i] >= 97 && sentence[i] <= 122 {
-			tempo = rune(sentence[i])
-			tempo -= 32
-			result += string(tempo)
-		} else {
-			result += string(rune(sentence[i]))
-		}
-	}
-	return result
-}
+
 
 func isprintable(sentence string) bool {
 	result := false
