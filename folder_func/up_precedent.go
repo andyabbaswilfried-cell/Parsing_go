@@ -14,7 +14,9 @@ func Up_precedent(phrase []string) []string {
 			nombre_int, err := strconv.Atoi(nbr_string[0])
 			if err != nil{
 				fmt.Println("Il semble y avoir un problème avec la conversion en chiffre")
-			} else{
+			}else if nombre_int >len(res){
+				fmt.Println("la grandeur est trop élevé, le système ne peut la traiter")
+			}else{
 				for word:= len(res)- nombre_int; word<len(res) ;word++{
 					res[word] = strings.ToUpper(res[word])
 					
