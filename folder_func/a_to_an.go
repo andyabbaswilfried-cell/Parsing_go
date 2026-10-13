@@ -11,7 +11,7 @@ func Indefinite_article_rule(phrase []string) []string {
 		switch phrase[i] {
 		case "a":
 			if i+1 < len(phrase) {
-				if strings.ToLower(string(phrase[i+1][0]))== "a" ||strings.ToLower(string(phrase[i+1][0]))== "e"   || strings.ToLower(string(phrase[i+1][0]))== "i"   || strings.ToLower(string(phrase[i+1][0]))== "o" || strings.ToLower(string(phrase[i+1][0]))== "u" || strings.ToLower(string(phrase[i+1][0]))== "h"{
+				if strings.Contains("aeiouh",string(phrase[i+1][0])){
 					res = append(res, "an")
 				} else {
 					res = append(res, "a")
@@ -21,7 +21,7 @@ func Indefinite_article_rule(phrase []string) []string {
 			}
 		case "A":
 			if i+1 < len(phrase) {
-				if strings.ToLower(string(phrase[i+1][0]))== "a" ||strings.ToLower(string(phrase[i+1][0]))== "e"   || strings.ToLower(string(phrase[i+1][0]))== "i"   || strings.ToLower(string(phrase[i+1][0]))== "o" || strings.ToLower(string(phrase[i+1][0]))== "u" || strings.ToLower(string(phrase[i+1][0]))== "h"{
+				if strings.Contains("aeiouh",string(phrase[i+1][0])){
 					res = append(res, "An")
 				} else {
 					res = append(res, "A")

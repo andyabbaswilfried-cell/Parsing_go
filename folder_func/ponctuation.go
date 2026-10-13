@@ -50,11 +50,7 @@ func Ponctuation_simple(phrase []string) []string {
 						 
 					} else{
 						res = append(res, phrase[i])
-					}
-					
-			
-					
-				
+					}					
 			default:
 				res = append(res, phrase[i])
 			}
@@ -68,9 +64,7 @@ func Is_ponctuation(mot string) bool {
 	for _, r := range mot {
 		if r != '.' && r != '!' && r != ':' && r != ';' && r != '?' && r != ',' {
 			return false
-
 		}
-
 	}
 	return true
 
