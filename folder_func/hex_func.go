@@ -1,3 +1,4 @@
+// Package folderfunc regroupe les règles de transformation du texte.
 package folderfunc
 
 import (
@@ -5,6 +6,7 @@ import (
 	"strconv"
 )
 
+// Hex convertit le mot précédent de l'hexadécimal vers le décimal lorsque le token (hex) est trouvé.
 func Hex(phrase []string) []string {
 	var res []string
 	for i := 0; i < len(phrase); i++ {

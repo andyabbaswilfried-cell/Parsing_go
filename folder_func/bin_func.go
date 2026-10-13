@@ -1,3 +1,4 @@
+// Package folderfunc regroupe les règles de transformation du texte.
 package folderfunc
 
 import (
@@ -5,6 +6,7 @@ import (
 	"strconv"
 )
 
+// Bin convertit le mot précédent du binaire vers le décimal lorsque le token (bin) est trouvé.
 func Bin(phrase []string) []string {
 	var  res []string 
 	for i:=0; i<len(phrase); i++{

@@ -1,4 +1,7 @@
 
+// Package main est le point d'entrée de l'outil Go-reloaded.
+// Il lit un fichier texte, applique les règles de transformation
+// et écrit le résultat corrigé dans sortie.txt.
 package main
 
 import (
@@ -9,14 +12,15 @@ import (
 	folderfunc "main.go/folder_func"
 )
 
+// main lit le chemin fourni en argument, applique les règles et
+// enregistre le texte transformé dans le fichier de sortie.
 func main() {
-	if len(os.Args) > 	1 {
-		fmt.Println("Trop d'arguments passé dans le terminal alors qu'il n'en faut qu'un seul.")
+	if len(os.Args) != 2 {
+		fmt.Println("Veuillez fournir exactement un argument : le chemin du fichier à corriger.")
 		return
 	}
 
 	entre := os.Args[1]
-
 	txt, err := os.ReadFile(entre)
 	if err != nil {
 		fmt.Printf("Error reading file: %v\n", err)
@@ -47,6 +51,7 @@ func main() {
 	}
 }
 
+// regles applique la chaîne de transformations sur un tableau de mots.
 func regles(matrice []string) []string {
 	if len(matrice) == 0 {
 		return matrice

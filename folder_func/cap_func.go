@@ -1,6 +1,7 @@
+// Package folderfunc regroupe les règles de transformation du texte.
 package folderfunc
 
-
+// Cap applique la transformation (cap) au mot précédent.
 func Cap(phrase []string) []string {
 	var res []string
 	for i:=0; i<len(phrase);i++{
@@ -15,6 +16,7 @@ func Cap(phrase []string) []string {
 }
 
 
+// Capitalize met la première lettre du mot en majuscule en conservant le reste.
 func Capitalize(sentence string) string {
 	var result string
 	var tempo rune
@@ -39,6 +41,7 @@ func Capitalize(sentence string) string {
 
 
 
+// isprintable vérifie si tous les caractères d'une chaîne sont alphanumériques imprimables.
 func isprintable(sentence string) bool {
 	result := false
 	for i := 0; i < len(sentence); i++ {
@@ -59,6 +62,7 @@ func isprintable(sentence string) bool {
 	return result
 }
 
+// Islower renvoie true si toute la chaîne est en minuscules.
 func Islower(sentence string) bool {
 	result := false
 	var sentence2 = []byte(sentence)
@@ -74,24 +78,6 @@ func Islower(sentence string) bool {
 	return result
 }
 
-func IsAlpha(sentence string) bool {
-	result := false
-	if len(sentence) == 0 {
-		return false
-	}
-	for i := 0; i < len(sentence); i++ {
-		if sentence[i] >= 65 && sentence[i] <= 90 {
-			result = true
-			continue
-		}
-		if sentence[i] >= 97 && sentence[i] <= 122 {
-			result = true
-			continue
-		}
-		return false
 
-	}
-	return result
-}
 
 

@@ -1,3 +1,4 @@
+// Package folderfunc regroupe les règles de transformation du texte.
 package folderfunc
 
 import (
@@ -6,6 +7,7 @@ import (
 	"strings"
 )
 
+// Up_precedent transforme les N mots précédents en majuscules avec le motif (up, N).
 func Up_precedent(phrase []string) []string {
 	var res []string
 	for i := 0; i < len(phrase); i++ {
@@ -30,6 +32,7 @@ func Up_precedent(phrase []string) []string {
 	return res
 }
 
+// Split sépare la valeur numérique du motif de déclenchement et renvoie les éléments extraits.
 func Split(sentence string, sep string) []string {
 	var result []string
 	var tempo string

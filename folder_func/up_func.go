@@ -1,9 +1,9 @@
+// Package folderfunc regroupe les règles de transformation du texte.
 package folderfunc
 
 import "strings"
 
-
-
+// Up transforme le mot précédent en majuscules lorsque le token (up) est trouvé.
 func Up(phrase []string) []string {
 	var resultat []string
 

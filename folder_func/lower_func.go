@@ -1,7 +1,9 @@
+// Package folderfunc regroupe les règles de transformation du texte.
 package folderfunc
 
 import "strings"
 
+// Lower transforme le mot précédent en minuscules lorsque le token (low) est trouvé.
 func Lower(phrase []string) []string {
 	var res []string
 	for i := 0; i < len(phrase); i++ {

@@ -1,7 +1,9 @@
+// Package folderfunc regroupe les règles de transformation du texte.
 package folderfunc
 
 import "strings"
 
+// Indefinite_article_rule remplace "a" par "an" devant une voyelle ou le son h.
 func Indefinite_article_rule(phrase []string) []string {
 	var res []string
 
